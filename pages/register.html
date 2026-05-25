@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EduPathway</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/toast.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container glass-card">
+        <a href="../index.html" class="logo-brand">
+            <span>🎓</span> 
+            <span class="logo-text">EduPathway</span>
+        </a>
+        <p class="auth-subtitle">Create an account to start tracking</p>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="e.g. rahul" required autocomplete="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required autocomplete="new-password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="••••••••" required autocomplete="new-password">
+            </div>
+            
+            <p id="registerError" class="error-message"></p>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                Create Account
+            </button>
+        </form>
+        
+        <p class="auth-switch">
+            Already have an account? <a href="login.html">Login here</a>
+        </p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

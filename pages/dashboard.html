@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EduPathway</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/pomodoro.css">
+    <link rel="stylesheet" href="../css/components/toast.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <span>🎓</span> 
+                <span class="logo-text">EduPathway</span>
+            </div>
+            <button class="close-sidebar-btn">&times;</button>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="active"><span>🏠</span>Dashboard</a>
+            <a href="tasks.html"><span>✔️</span>Tasks</a>
+            <a href="goals.html"><span>🎯</span>Goals</a>
+            <a href="calendar.html"><span>📅</span>Calendar</a>
+        </nav>
+
+        <!-- Persistent Pomodoro Timer Container -->
+        <div id="pomodoroTimerContainer"></div>
+
+        <!-- Sidebar Footer & Theme Toggle -->
+        <div style="margin-top: auto;">
+            <div class="theme-switch-wrapper">
+                <span class="theme-switch-label" id="themeToggleLabel">Light Mode</span>
+                <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
+            </div>
+            <a href="#" id="logoutBtn" class="nav-menu-logout"><span>↩️</span>Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content-wrapper">
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="open-sidebar-btn">☰</button>
+                    <div>
+                        <h1>Hello, <span id="loggedInUsername">Scholar</span>!</h1>
+                        <p class="header-meta">Welcome back! Here's your academic progress overview.</p>
+                    </div>
+                </div>
+                <div id="headerDate" class="header-date">
+                    <span>📅</span>
+                    <span id="dateText">Loading date...</span>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <!-- Stat Card: Tasks -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container blue">📚</div>
+                    <div class="stat-info">
+                        <h3>Tasks Tracker</h3>
+                        <p id="totalTasksStat" class="value">0</p>
+                        <p id="completedTasksStat" class="detail">0 completed</p>
+                    </div>
+                </div>
+
+                <!-- Stat Card: Streak -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container yellow">🔥</div>
+                    <div class="stat-info">
+                        <h3>Study Streak</h3>
+                        <p id="streakStat" class="value">0 Days</p>
+                        <p id="streakDetailStat" class="detail">Keep it burning!</p>
+                    </div>
+                </div>
+
+                <!-- Stat Card: Productivity -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container green">📈</div>
+                    <div class="stat-info">
+                        <h3>Productivity</h3>
+                        <p id="productivityStat" class="value">0%</p>
+                        <p id="gradeDetailStat" class="detail">Grade: N/A</p>
+                    </div>
+                </div>
+
+                <!-- Stat Card: Study Time -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container purple">🕒</div>
+                    <div class="stat-info">
+                        <h3>Study Hours</h3>
+                        <p id="studyHoursStat" class="value">0 hrs</p>
+                        <p id="timeDetailStat" class="detail">Total focus logged</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Main Columns -->
+            <section class="dashboard-main-grid">
+                <!-- Column 1: Motivational Quotes & Chart -->
+                <div>
+                    <!-- Quotes Widget -->
+                    <div id="quoteSection" class="quote-box glass-card" style="cursor: pointer;" title="Click for new quote">
+                        <!-- Loaded via quotes.js -->
+                    </div>
+
+                    <!-- Chart.js Canvas -->
+                    <div class="glass-card" style="margin-bottom: 2rem;">
+                        <div class="content-card-header">
+                            <h2>📊 Weekly Productivity Trend</h2>
+                        </div>
+                        <div style="position: relative; height:250px; width:100%;">
+                            <canvas id="productivityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Upcoming Deadlines & Goals Progress -->
+                <div>
+                    <!-- Upcoming Deadlines -->
+                    <div class="glass-card" style="margin-bottom: 2rem;">
+                        <div class="content-card-header">
+                            <h2>🔔 Upcoming Deadlines</h2>
+                        </div>
+                        <div id="upcomingTasksContainer" class="upcoming-task-list">
+                            <!-- Loaded via js -->
+                        </div>
+                    </div>
+
+                    <!-- Goal Progression -->
+                    <div class="glass-card">
+                        <div class="content-card-header">
+                            <h2>🎯 Goal Progression</h2>
+                        </div>
+                        <div id="dashboardGoalsContainer">
+                            <!-- Loaded via js -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile drawer -->
+    <div class="overlay"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/quotes.js"></script>
+    <script src="../js/pomodoro.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* pomodoro.css - Custom Styling for the Pomodoro Timer Component */
+
+.pomodoro-widget {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.pomodoro-modes {
+    display: flex;
+    background: var(--bg-color);
+    padding: 0.2rem;
+    border-radius: var(--radius-md);
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.pomodoro-mode-btn {
+    flex: 1;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.pomodoro-mode-btn.active {
+    background: var(--card-bg);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.pomodoro-display {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: var(--radius-full);
+    background: radial-gradient(circle, var(--card-bg) 60%, var(--bg-color) 100%);
+    border: 4px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.pomodoro-display.ticking {
+    border-color: var(--primary);
+    animation: pomodoro-pulse 2s infinite ease-in-out;
+}
+
+.pomodoro-display.ticking.break {
+    border-color: var(--success);
+}
+
+.pomodoro-time {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.pomodoro-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+.pomodoro-controls {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.pomodoro-ctrl-btn {
+    border: none;
+    cursor: pointer;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.pomodoro-ctrl-btn:hover {
+    background: var(--border-color);
+    transform: scale(1.08);
+}
+
+.pomodoro-ctrl-btn.play-btn {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.pomodoro-ctrl-btn.play-btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 10px var(--primary-glow);
+}
+
+.pomodoro-ctrl-btn.play-btn.break {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.pomodoro-ctrl-btn.play-btn.break:hover {
+    background: #059669;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+@keyframes pomodoro-pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--primary-glow);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}

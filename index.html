@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPathway - Premium Study Planner & Productivity Tracker</title>
+    <!-- Favicon / Web App Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+    <div class="landing-wrapper">
+        <div class="landing-card glass-card">
+            <div class="landing-logo">
+                <span>🎓</span> 
+                <span class="logo-text">EduPathway</span>
+            </div>
+            <h1 class="landing-title">Unlock Your Ultimate Study Potential</h1>
+            <p class="landing-desc">
+                Organize assignments, track milestones, monitor focus sessions with a persistent Pomodoro timer, and visualize weekly productivity insights inside a single recruiter-ready workspace.
+            </p>
+            
+            <!-- Features highlights Grid -->
+            <div class="landing-features">
+                <div class="landing-feature-item">
+                    <span>📊</span>
+                    <h4>Analytics Hub</h4>
+                    <p>Weekly charts and focus streaks.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <span>⏰</span>
+                    <h4>Persistent Pomodoro</h4>
+                    <p>Focus timers that follow you.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <span>🎯</span>
+                    <h4>Milestones & Goals</h4>
+                    <p>Granular progress tracking.</p>
+                </div>
+                <div class="landing-feature-item">
+                    <span>📅</span>
+                    <h4>Interactive Calendar</h4>
+                    <p>Deadlines mapped visually.</p>
+                </div>
+            </div>
+            
+            <!-- Dynamic CTA Button -->
+            <a href="pages/login.html" id="landingCta" class="btn btn-primary" style="text-decoration: none; padding: 0.85rem 2rem; font-size: 1rem;">
+                Get Started Free →
+            </a>
+            
+            <p class="auth-switch" style="margin-top: 1.5rem; font-size: 0.8rem;">
+                Built strictly with HTML, CSS, JavaScript, and LocalStorage. Suitable for offline usage.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Adjust landing CTA button depending on user session
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = EduAuth.getLoggedInUser();
+            const cta = document.getElementById('landingCta');
+            if (user && cta) {
+                cta.textContent = 'Go to Dashboard →';
+                cta.href = 'pages/dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

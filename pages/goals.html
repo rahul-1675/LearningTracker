@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Tracker - EduPathway</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/pomodoro.css">
+    <link rel="stylesheet" href="../css/components/toast.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-brand">
+                <span>🎓</span> 
+                <span class="logo-text">EduPathway</span>
+            </div>
+            <button class="close-sidebar-btn">&times;</button>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="dashboard.html"><span>🏠</span>Dashboard</a>
+            <a href="tasks.html"><span>✔️</span>Tasks</a>
+            <a href="goals.html" class="active"><span>🎯</span>Goals</a>
+            <a href="calendar.html"><span>📅</span>Calendar</a>
+        </nav>
+
+        <!-- Persistent Pomodoro Timer Container -->
+        <div id="pomodoroTimerContainer"></div>
+
+        <!-- Sidebar Footer & Theme Toggle -->
+        <div style="margin-top: auto;">
+            <div class="theme-switch-wrapper">
+                <span class="theme-switch-label" id="themeToggleLabel">Light Mode</span>
+                <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
+            </div>
+            <a href="#" id="logoutBtn" class="nav-menu-logout"><span>↩️</span>Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-content-wrapper">
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="open-sidebar-btn">☰</button>
+                    <div>
+                        <h1>Goal Tracker</h1>
+                        <p class="header-meta">Set grand academic goals and cross out milestones.</p>
+                    </div>
+                </div>
+                <button id="addGoalBtn" class="btn btn-primary btn-success">+ Add Goal</button>
+            </header>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid">
+                <!-- Card 1: Total Goals -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container blue">🎯</div>
+                    <div class="stat-info">
+                        <h3>Total Goals</h3>
+                        <p id="totalGoalsStat" class="value">0</p>
+                        <p class="detail">Academic benchmarks</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Completed Goals -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container green">✅</div>
+                    <div class="stat-info">
+                        <h3>Completed</h3>
+                        <p id="completedGoalsStat" class="value">0</p>
+                        <p class="detail">Fully achieved</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Avg Progress -->
+                <div class="stat-card glass-card">
+                    <div class="icon-container purple">📈</div>
+                    <div class="stat-info">
+                        <h3>Avg Progress</h3>
+                        <p id="avgProgressStat" class="value">0%</p>
+                        <p class="detail">Across all active goals</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goal Cards Grid -->
+            <section id="goalListContainer" class="goal-list">
+                <!-- Goal cards render dynamically -->
+            </section>
+        </div>
+    </div>
+
+    <!-- Create/Edit Goal Modal -->
+    <div id="addGoalModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="goalModalTitle">Create New Goal</h2>
+                <button id="closeGoalModalBtn" class="close-button">&times;</button>
+            </div>
+            <form id="addGoalForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="goalTitle">Goal Title</label>
+                        <input type="text" id="goalTitle" placeholder="e.g. Publish Term Research Paper" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goalDescription">Description</label>
+                        <textarea id="goalDescription" rows="3" placeholder="Explain the high-level roadmap of this goal..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goalDeadline">Deadline</label>
+                        <input type="date" id="goalDeadline" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Estimated Time Focus</label>
+                        <div class="time-input-group">
+                            <input type="number" id="goalTimeValue" min="1" placeholder="40" required>
+                            <select id="goalTimeUnit">
+                                <option value="hours">Hours</option>
+                                <option value="minutes">Minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goalMilestones">Milestones (comma-separated)</label>
+                        <input type="text" id="goalMilestones" placeholder="e.g. Lit Review, Outline, First Draft, Final Polish" required>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; display: block;">Separate milestones with commas to split them into active checkmarks.</span>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" id="cancelGoalModalBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" id="saveGoalBtn" class="btn btn-primary btn-success">Create Goal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile drawer -->
+    <div class="overlay"></div>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/pomodoro.js"></script>
+    <script src="../js/goals.js"></script>
+</body>
+</html>
