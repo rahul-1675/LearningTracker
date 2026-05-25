@@ -1,11 +1,11 @@
-# 🎓 EduPathway — Premium Study Planner & Productivity Tracker
+# 🎓 FocusPath — Premium Study Planner & Productivity Tracker
 
 [![PWA Status](https://img.shields.io/badge/PWA-Installable-success.svg)](#7-progressive-web-app-pwa-offline-first)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Tech Stack](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20VanillaJS-orange.svg)](#technologies-used)
 [![Deployment](https://img.shields.io/badge/Deploy-Netlify%20%2F%20Vercel-brightgreen.svg)](#deployment-steps-netlify--vercel)
 
-**EduPathway (LearningTracker)** is a high-performance, modern, and recruiter-ready student productivity dashboard built strictly using **HTML5, CSS3 (with dynamic HSL dark-mode themes), Vanilla JavaScript, and LocalStorage**. 
+**FocusPath (LearningTracker)** is a high-performance, modern, and recruiter-ready student productivity dashboard built strictly using **HTML5, CSS3 (with dynamic HSL dark-mode themes), Vanilla JavaScript, and LocalStorage**. 
 
 Designed as a showcase of pure frontend engineering, this application packs advanced client-side capabilities including **real-time session-persistent timers, responsive glassmorphic interfaces, HTML5 drag-and-drop lists, and Progressive Web App (PWA) offline installation support**—all without relying on bloated libraries, bundlers, or heavy backends.
 
@@ -53,7 +53,7 @@ Designed as a showcase of pure frontend engineering, this application packs adva
 Following production-ready practices, the project is structured modularly:
 
 ```
-EduPathway/
+FocusPath/
 │
 ├── index.html                  # Welcome Landing Page (checks sessions -> routes appropriately)
 ├── manifest.json               # PWA Install & Shell Launcher parameters
@@ -101,8 +101,8 @@ EduPathway/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/rahul-1675/EduPathway.git
-   cd EduPathway
+   git clone https://github.com/rahul-1675/LearningTracker.git
+   cd LearningTracker
    ```
 
 2. **Run locally using a lightweight server**:
@@ -126,7 +126,7 @@ EduPathway/
 
 ## 🌐 Deployment Steps (Netlify / Vercel)
 
-As a 100% frontend static project, EduPathway is fully compatible with instant hosting networks like **Netlify** or **Vercel**:
+As a 100% frontend static project, FocusPath is fully compatible with instant hosting networks like **Netlify** or **Vercel**:
 
 ### Option A: Deploy with Netlify
 1. Go to [Netlify](https://www.netlify.com/) and sign in.
